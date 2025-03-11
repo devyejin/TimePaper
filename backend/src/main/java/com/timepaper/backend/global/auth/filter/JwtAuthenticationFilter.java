@@ -43,6 +43,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       Authentication authentication = new UsernamePasswordAuthenticationToken(
           userDetails, null, userDetails.getAuthorities());
 
+      log.info("authentication : {}", authentication.getName());
+
       SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
@@ -61,6 +63,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
   protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
     String path = request.getServletPath();
     String method = request.getMethod();
+
+    log.info("path : {}", path);
     AntPathMatcher antPathMatcher = new AntPathMatcher();
 
     if ("GET".equalsIgnoreCase(method)) {
