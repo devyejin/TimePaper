@@ -3,7 +3,8 @@ import BottomButton from '../BottomButton/BottomButton';
 
 export default function ShareLink({ timepaperId }) {
   const KAKAO_API_KEY = import.meta.env.VITE_KAKAO_API_KEY;
-  const realUrl = `https://43.201.24.13.sslip.io/timepaper/${timepaperId}`;
+  const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+  const realUrl = `${BASE_URL}/timepaper/${timepaperId}`;
 
   useEffect(() => {
     if (!window.Kakao) {
