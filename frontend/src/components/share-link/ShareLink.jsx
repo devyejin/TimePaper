@@ -3,7 +3,8 @@ import BottomButton from '../BottomButton/BottomButton';
 
 export default function ShareLink({ timepaperId }) {
   const KAKAO_API_KEY = import.meta.env.VITE_KAKAO_API_KEY;
-  const realUrl = `https://43.201.24.13.sslip.io/timepaper/${timepaperId}`;
+  const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+  const realUrl = `${BASE_URL}/timepaper/${timepaperId}`;
 
   useEffect(() => {
     if (!window.Kakao) {
@@ -27,7 +28,7 @@ export default function ShareLink({ timepaperId }) {
       content: {
         title: '친구에게서 타임페이퍼가 왔어요💕',
         description: '',
-        imageUrl: `https://43.201.24.13.sslip.io/assets/timepaperLogo-0WzOUFBd.png`,
+        imageUrl: `${BASE_URL}/assets/timepaperLogo-0WzOUFBd.png`,
         link: {
           mobileWebUrl: realUrl,
           webUrl: realUrl,
