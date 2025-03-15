@@ -1,6 +1,6 @@
 package com.timepaper.backend.domain.user.entity;
 
-import com.timepaper.backend.global.entity.BaseTimeEntity;
+import com.timepaper.backend.global.common.entity.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
