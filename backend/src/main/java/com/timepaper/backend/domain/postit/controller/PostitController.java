@@ -4,7 +4,7 @@ import com.timepaper.backend.domain.postit.dto.PostitCreateRequestDto;
 import com.timepaper.backend.domain.postit.dto.PostitListResponseDto;
 import com.timepaper.backend.domain.postit.service.PostitService;
 import com.timepaper.backend.domain.user.entity.User;
-import com.timepaper.backend.global.dto.ApiResponse;
+import com.timepaper.backend.global.common.dto.ApiResponse;
 import jakarta.validation.Valid;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;

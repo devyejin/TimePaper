@@ -6,7 +6,7 @@ import com.timepaper.backend.domain.timepaper.dto.response.TimePaperLockResponse
 import com.timepaper.backend.domain.timepaper.dto.response.TimePaperResponseDto;
 import com.timepaper.backend.domain.timepaper.service.TimePaperService;
 import com.timepaper.backend.domain.user.entity.User;
-import com.timepaper.backend.global.dto.ApiResponse;
+import com.timepaper.backend.global.common.dto.ApiResponse;
 import jakarta.validation.Valid;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;

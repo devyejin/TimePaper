@@ -4,7 +4,7 @@ import com.timepaper.backend.global.auth.dto.CertificationNumberRequestDto;
 import com.timepaper.backend.global.auth.dto.EmailCertificationRequestDto;
 import com.timepaper.backend.global.auth.dto.SignupRequestDto;
 import com.timepaper.backend.global.auth.service.AuthService;
-import com.timepaper.backend.global.dto.ApiResponse;
+import com.timepaper.backend.global.common.dto.ApiResponse;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
