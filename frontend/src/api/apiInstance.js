@@ -12,6 +12,7 @@ const NO_TOKEN_REQUIRED = [
   '/auth/signup',
   '/auth/email-verification-codes',
   '/auth/email-verification-codes/validate',
+  '/auth/demo-login',
 ];
 
 const GET_TIMEPAPER_REGEX = /^\/timepapers\/\d+$/;
