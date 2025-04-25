@@ -18,6 +18,12 @@ export default function Login() {
   const location = useLocation();
   const { isLoggedIn } = useSelector((state) => state.auth);
 
+  const handleLoginSuccess = (response) => {
+    dispatch(login(response.headers.authorization));
+    const next = location.state?.next ?? -1;
+    navigate(next, { replace: true });
+  };
+
   const handleLoginButtonClick = (event) => {
     setIsLoginButtonEnable(false);
     event.preventDefault();
@@ -25,9 +31,7 @@ export default function Login() {
       dispatch(startLoading());
       try {
         const response = await api.login(inputData.email, inputData.password);
-        dispatch(login(response.headers.authorization));
-        const next = location.state?.next ?? -1;
-        navigate(next, { replace: true });
+        handleLoginSuccess(response);
       } catch (error) {
         setIsAlertShow(true);
         setIsLoginButtonEnable(true);
@@ -35,6 +39,19 @@ export default function Login() {
         dispatch(finishLoading());
       }
     })();
+  };
+
+  const handleDemoLoginButtonClick = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await api.demoLogin();
+      handleLoginSuccess(response);
+    } catch (error) {
+      setIsAlertShow(true);
+      setIsLoginButtonEnable(true);
+    } finally {
+      dispatch(finishLoading());
+    }
   };
 
   const handleInputChange = (event) => {
@@ -72,11 +89,11 @@ export default function Login() {
     <>
       <div className={styles.container}>
         {isAlertShow && (
-            <Alert
-              buttonTitle={'확인'}
-              message={'로그인 실패했습니다.'}
-              onClick={handleAlertButtonClick}
-            ></Alert>
+          <Alert
+            buttonTitle={'확인'}
+            message={'로그인 실패했습니다.'}
+            onClick={handleAlertButtonClick}
+          ></Alert>
         )}
         <img src={staticImagePath.timepaperLogo} className="logo-image" />
         <form action="" className={styles.formContainer}>
@@ -103,6 +120,9 @@ export default function Login() {
             ></BottomButton>
             <button className={styles.signupButton} onClick={handleSignUpButtonClick}>
               회원가입
+            </button>
+            <button className={styles.demoLoginButton} onClick={handleDemoLoginButtonClick}>
+              데모 로그인
             </button>
           </div>
         </form>

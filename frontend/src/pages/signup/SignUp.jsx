@@ -137,8 +137,6 @@ export default function SignUp() {
     }));
     setPassword(value);
 
-    console.log(value)
-    console.log(check.test(value) && value.length >= 8)
   };
 
   const handlePasswordCheck = (e) => {

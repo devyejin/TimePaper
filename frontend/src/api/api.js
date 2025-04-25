@@ -17,6 +17,10 @@ export const api = {
     return response;
   },
 
+  demoLogin: async () => {
+   return await apiInstance.post('/auth/demo-login',{},{ withCredentials: true,},);
+  },
+
   reissue: async () => {
     const response = await apiInstance.post(
       '/auth/reissue',
