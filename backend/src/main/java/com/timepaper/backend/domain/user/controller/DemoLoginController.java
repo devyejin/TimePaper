@@ -21,7 +21,7 @@ import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/auth")
+@RequestMapping("/api")
 public class DemoLoginController {
 
     private final AuthenticationManager authenticationManager;
@@ -32,7 +32,7 @@ public class DemoLoginController {
     @Value("${DEMO_PASSWORD}")
     private String demoPassword;
 
-    @PostMapping("/demo-login")
+    @PostMapping("/auth/demo-login")
     public ResponseEntity<?> demoLogin(HttpServletResponse response) throws IOException {
         UsernamePasswordAuthenticationToken authToken =
                 new UsernamePasswordAuthenticationToken(demoEmail, demoPassword);
